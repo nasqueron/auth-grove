@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: AuthGrove
+        psr4_prefix: AuthGrove
+        src_path: app
