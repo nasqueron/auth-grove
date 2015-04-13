@@ -7,9 +7,13 @@
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
-
+    
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+    
+    # Development mode
+    SetEnv APPLICATION_ENV dev
+    RewriteRule ^css/([a-z]*)\.css$ stylesheet.php?resource=less&name=$1 [L]
 </IfModule>
