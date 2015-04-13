@@ -1,48 +1,32 @@
 <html>
 	<head>
-		<title>Laravel</title>
-		
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
-
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
-
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
-
-			.title {
-				font-size: 96px;
-				margin-bottom: 40px;
-			}
-
-			.quote {
-				font-size: 24px;
-			}
-		</style>
+		<title>Authentication grove</title>
+		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel='stylesheet' type='text/css'>
+		<link href="/css/login.css" rel='stylesheet' type='text/css'>
 	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<div class="title">Laravel 5</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
-			</div>
-		</div>
+	<body class="sviatiHory">
+	        <div class="card card-container">
+	        	<h1 class="title">Auth Grove</h1>
+	        	<img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="A door, as a blank avatar" />
+	            <form class="form-signin">
+	            	<div id="identity">
+	                	<span id="reauth-username" class="reauth-username"></span>
+	                	<input type="email" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+	                	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	                </div>
+                	<div id="remember" class="checkbox">
+                    	<label>
+                        	<input type="checkbox" value="remember-me"> Remember me
+                    	</label>
+                	</div>
+	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+	            </form><!-- /form -->
+	            <a href="#" class="forgot-password">
+	                Password recovery options
+	            </a>
+	        </div><!-- /card-container -->
+	        
+		<script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+		<script src="/js/login.js"></script>
 	</body>
 </html>

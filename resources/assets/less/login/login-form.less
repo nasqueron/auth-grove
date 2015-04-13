@@ -1,0 +1,194 @@
+/*  -------------------------------------------------------------
+    Auth Grove - Login form
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Author:         Dereckson, cesiztel
+    Tags:           Bootstrap
+    Filename:       login.css
+    Source:         login-form.less
+    Licence:        MIT
+    -------------------------------------------------------------    */
+
+/*  -------------------------------------------------------------
+    Table of contents
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    :: Card
+    :: Form styles
+
+ */
+
+/*  -------------------------------------------------------------
+    Card
+    
+    The card is defined as the area of the screen offering the
+    content. It has the shape of a card.
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+
+@media screen and (min-width: 350px) {
+    .card-container.card {
+        width: 350px;
+        padding: 0.25rem 2rem 2rem 2rem;
+    }
+    
+    .card {
+        padding: 1.8rem 2rem 2rem;
+    }
+}
+
+.card {
+    margin: 4rem auto 1.5rem auto;
+
+    background-color: @shadow-medium;
+    color: white;
+    font-weight: 300 !important;
+    
+    .border-radius(2px);
+    .box-shadow(0px; 2px; 2px; @shadow-light);
+}
+
+/*  -------------------------------------------------------------
+    Form styles
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    
+    .user-select(none);
+    cursor: default;
+}
+
+.profile-img-card {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+    
+    background-color: rgba(255, 255, 255, 0.3);
+    
+    .border-radius(50%);
+    .box-shadow(0; 10px; 5px; @shadow-light);
+}
+
+/**
+ * Form styles
+ */
+ 
+.profile-name-card {
+    margin: 10px 0 0;
+    min-height: 1em;
+    
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reauth-username {
+    display: block;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+
+    color: #404040;
+    line-height: 2;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-signin #inputUsername,
+.form-signin #inputPassword {
+    height: 44px;
+    
+    direction: ltr;
+    font-size: 16px;
+}
+
+input, #inputUsername {
+    border-color: rgba(30, 30, 30, 0.5) !important;
+    
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: white !important;
+    font-weight: 300;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(104, 145, 162);
+}
+
+#identity {
+    margin-bottom: 2em;
+}
+
+.btn-signin {
+    height: 36px;
+    padding: 0px;
+    
+    border: none;
+    .border-radius(3px);
+    
+    background-color: #52768C;
+    font-weight: 700;
+    font-size: 14px;
+    
+    transition: all 0.218s;
+}
+
+.btn-signin:hover,
+.btn-signin:active,
+.btn-signin:focus {
+    background-color: rgb(104, 145, 162);
+}
+
+.forgot-password {
+    color: #90C9E0;
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: #97D2EB;
+}
+
+/*  -------------------------------------------------------------
+    Color adjustment for Pandemonium mode
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    */
+
+body.pandemonium {
+    .btn-signin {
+        background-color: #7D1A07 !important;
+    }
+    
+    .btn-signin:hover,
+    .btn-signin:active,
+    .btn-signin:focus {
+        background-color: #921809 !important;
+    }
+    
+    .forgot-password {
+        color: rgb(176, 31, 10) !important;
+    }
+    
+    .forgot-password:hover,
+    .forgot-password:active,
+    .forgot-password:focus{
+        color: #921809 !important;
+    }
+}

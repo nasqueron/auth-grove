@@ -1,0 +1,117 @@
+/*  -------------------------------------------------------------
+    Auth Grove - Responsive picutres
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Author:         Dereckson
+    Tags:           Responsive backgrounds media-queries
+    Filename:       login.css
+    Source:         responsive-pictures.less
+    Licence:        BSD
+    -------------------------------------------------------------    */
+    
+/*
+     You can generate files like this one through our CSS media queries
+     generator. http://tools.nasqueron.org/css/media-queries-generator.
+     
+                                                                     */
+
+@media screen and (max-width: 400px) {
+    body.sviatiHory {
+        background-image: url("../images/bg/SviatiHory-400.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+    }
+    
+    body.pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-400.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {
+    body.sviatiHory {
+        background-image: url("../images/bg/SviatiHory-720.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    
+    body.pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-720.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {
+    body.sviatiHory {
+        background-image: url("../images/bg/SviatiHory-1280.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    
+    body.pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-1280.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+    body.sviatiHory {
+        background-image: url("../images/bg/SviatiHory-1440.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 80% left;
+    }
+    
+    body.pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-1440.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    body.sviatiHory {
+        background-image: url("../images/bg/SviatiHory-1920.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+    }
+    
+    body.pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-1920.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+}
+
+@media screen and (min-width: 1921px) {
+    .sviatiHory {
+        background-image: url("../images/bg/SviatiHory.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+    }
+
+    .pandemonium {
+        background-image: url("../images/bg/JohnMartinPandemonium-2880.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    body.sviatiHory, body.pandemonium {
+        background-size: cover;
+    }
+}
