@@ -26,9 +26,7 @@
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">@lang('login.loginButton')</button>
         </form>
         <!-- /form -->
-        <a href="#" class="forgot-password">
-		@lang('login.passwordRecovery')
-	            </a>
+        <a href="{{ url('/auth/recover') }}" class="forgot-password">@lang('login.passwordRecovery')</a>
     </div>
     <!-- /card-container -->
 
