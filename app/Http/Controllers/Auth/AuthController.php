@@ -3,7 +3,7 @@
 use AuthGrove\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use AuthGrove\Services\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
