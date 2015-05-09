@@ -9,7 +9,7 @@
 
 <body class="sviatiHory">
     <div class="card card-container">
-            <h1 class="title">@lang('app.title')</h1>
+        <h1 class="title">@lang('app.title')</h1>
         <img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="@lang('login.blankAvatarAlt')" />
         <form class="form-signin" method="post">
             <div id="identity">
