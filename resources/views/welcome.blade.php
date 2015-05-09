@@ -11,10 +11,10 @@
     <div class="card card-container">
         <h1 class="title">@lang('app.title')</h1>
         <img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="@lang('login.blankAvatarAlt')" />
-        <form class="form-signin" method="post">
+        <form class="form-signin" role="form" method="POST" action="{{ url('/auth/login') }}">
             <div id="identity">
                 <span id="reauth-username" class="reauth-username"></span>
-                <input type="text" name="username" id="inputUsername" class="form-control" placeholder="@lang('login.username')" required autofocus>
+                <input type="text" name="username" id="inputUsername" class="form-control" value="{{ old('username') }}" placeholder="@lang('login.username')" required autofocus>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="@lang('login.password')" required>
             </div>
             <div id="remember" class="checkbox">
