@@ -1,16 +1,15 @@
 <?php namespace AuthGrove\Http\Controllers;
 
-class HomeController extends Controller {
+class LoginDashboardController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Home Controller
+	| Login dashboard Controller
 	|--------------------------------------------------------------------------
 	|
-	| This controller renders your application's "dashboard" for users that
-	| are authenticated. Of course, you are free to change or remove the
-	| controller as you wish. It is just here to get your app started!
-	|
+	| This controller renders a dashsboard for users that are authenticated. It
+	| allows them to know they're already authenticated and to get information
+	| about their authentication data, methods and connections.
 	*/
 
 	/**
@@ -32,5 +31,4 @@ class HomeController extends Controller {
 	{
 		return view('home');
 	}
-
 }
