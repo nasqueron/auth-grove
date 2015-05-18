@@ -13,6 +13,11 @@
 
 Route::get('/', 'LoginDashboardController@index');
 
+//Allows to external tool to ping your instalation and know if the site is up.
+Route::get('status', function() {
+	return "ALIVE";
+});
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
