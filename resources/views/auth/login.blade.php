@@ -1,15 +1,6 @@
-<html>
+@extends('auth.master')
 
-<head>
-    <title>@lang('app.title')</title>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel='stylesheet' type='text/css'>
-    <link href="/css/login.css" rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body class="sviatiHory">
-    <div class="card card-container">
-        <h1 class="title">@lang('app.title')</h1>
+@section('card-content')
         <img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="@lang('login.blankAvatarAlt')" />
         <form class="form-signin" role="form" method="POST" action="{{ url('/auth/login') }}">
             <div id="identity">
@@ -36,11 +27,4 @@
 @if (count($errors) == 0)
         <a href="{{ url('/auth/recover') }}" class="forgot-password">@lang('login.passwordRecovery')</a>
 @endif
-    </div>
-    <!-- /card-container -->
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
-    <script src="/js/login.js"></script>
-</body>
-
-</html>
+@stop
