@@ -23,6 +23,7 @@ return [
 	"loginButton" => "Se connecter",
 	"remember" => "Rester connecté",
 	"passwordRecovery" => "Récupération de mot de passe",
+	"registerAccount" => "Créer un compte",
 	"blankAvatarAlt" => "Une porte, comme avatar par défaut.",
 
 	// Error messages

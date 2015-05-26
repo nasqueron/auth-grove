@@ -18,6 +18,7 @@ return [
 	"loginButton" => "Sign in",
 	"remember" => "Remember me",
 	"passwordRecovery" => "Password recovery options",
+	"registerAccount" => "Register an account",
 	"blankAvatarAlt" => "A door, as a blank avatar",
 
 	//Error messages

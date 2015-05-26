@@ -14,7 +14,7 @@
 @foreach ($errors->all() as $error)
                 {{ $error }}<br />
 @endforeach
-                <a href="{{ url('/auth/recover') }}" class="forgot-password">@lang('login.passwordRecovery')</a>
+                <a href="{{ url('/auth/recover') }}" class="action-link">@lang('login.passwordRecovery')</a>
             </p>
             @endif
 
@@ -26,6 +26,8 @@
         </form>
         <!-- /form -->
 @if (count($errors) == 0)
-        <a href="{{ url('/auth/recover') }}" class="forgot-password">@lang('login.passwordRecovery')</a>
+        <a href="{{ url('/auth/recover') }}" class="action-link">@lang('login.passwordRecovery')</a><br />
 @endif
+
+       <a href="{{ url('/auth/register') }}" class="action-link">@lang('login.registerAccount')</a>
 @stop
