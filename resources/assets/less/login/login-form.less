@@ -97,15 +97,7 @@
     white-space: nowrap;
 }
 
-.form-signin #inputUsername,
-.form-signin #inputPassword {
-    height: 44px;
-    
-    direction: ltr;
-    font-size: 16px;
-}
-
-input, #inputUsername {
+input {
     border-color: rgba(30, 30, 30, 0.5) !important;
     
     background-color: rgba(0, 0, 0, 0.4) !important;
@@ -120,9 +112,15 @@ input, #inputUsername {
     display: block;
     box-sizing: border-box;
     position: relative;
+    
     width: 100%;
-    margin-bottom: 10px;
+    height: 44px;
     z-index: 1;
+
+    direction: ltr;
+    font-size: 16px;
+    
+    margin-bottom: 10px;
 }
 
 .form-signin .form-control:focus {
@@ -131,6 +129,12 @@ input, #inputUsername {
     
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(104, 145, 162);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(104, 145, 162);
+}
+
+.form-register {
+    label {
+        margin-top: 1em !important;
+    }
 }
 
 #identity {
