@@ -33,6 +33,10 @@ return [
 	"passwordBoth" => "Password (twice)",
 	"registerButton" => "Register",
 
+	//Recover access form
+	"resetPassword" => "Recover access",
+	"recoverButton" => "Send reset password link",
+
 	//Error messages
 	"failedLogin" => "These credentials do not match our records.",
 ];
