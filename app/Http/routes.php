@@ -20,5 +20,4 @@ Route::get('status', function() {
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
 ]);

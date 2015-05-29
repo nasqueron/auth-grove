@@ -3,7 +3,9 @@
 use AuthGrove\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
+use Illuminate\Contracts\Auth\PasswordBroker;
 use AuthGrove\Services\AuthenticatesAndRegistersUsers;
+use AuthGrove\Services\ResetsPasswords;
 
 class AuthController extends Controller {
 
@@ -19,18 +21,21 @@ class AuthController extends Controller {
 	*/
 
 	use AuthenticatesAndRegistersUsers;
+	use ResetsPasswords;
 
 	/**
 	 * Create a new authentication controller instance.
 	 *
 	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
 	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+	 * @param  \Illuminate\Contracts\Auth\PasswordBroker  $passwords
 	 * @return void
 	 */
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct(Guard $auth, Registrar $registrar, PasswordBroker $passwords)
 	{
 		$this->auth = $auth;
 		$this->registrar = $registrar;
+		$this->passwords = $passwords;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
