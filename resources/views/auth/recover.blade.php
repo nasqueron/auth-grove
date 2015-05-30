@@ -1,50 +1,28 @@
-@extends('app')
+@extends('auth.master')
 
-@section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Reset Password</div>
-				<div class="panel-body">
-					@if (session('status'))
-						<div class="alert alert-success">
-							{{ session('status') }}
-						</div>
-					@endif
+@section('card-content')
+        <h1 class="title">@lang('login.resetPassword')</h1>
+@if (session('status'))
+        <p class="success">{{ session('status') }}</p>
+        <p class="center"><img src="{{ url('/images/white-check.svg') }}" alt="Check mark" width="100px" /></p>
+        <p class="nav"><a href="{{ url('/') }}">@lang('pagination.previous') Back to login screen</a></p>
+@else
+		<form class="form-signin form-recover" role="form" method="POST" action="{{ url('/auth/recover') }}">
+            <div id="identity">
+				<input type="email" name="email" id="inputEmail" class="form-control"
+                       value="{{ old('email') }}" placeholder="@lang('login.email')" required autofocus />
+            </div>@if (count($errors) > 0)
 
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+            <p class="errors">
+@foreach ($errors->all() as $error)
+                {{ $error }}<br />
+@endforeach
+            </p>
+            @endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">@lang('login.recoverButton')</button>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Send Password Reset Link
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+        </form>
+@endif
 @endsection
