@@ -37,6 +37,10 @@ return [
 	"recoverAccess" => "Recover access",
 	"recoverButton" => "Send reset password link",
 
+	//Reset password form
+	"resetPassword" => "New password",
+	"resetButton" => "Reset password",
+
 	//Error messages
 	"failedLogin" => "These credentials do not match our records.",
 ];
