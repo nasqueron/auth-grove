@@ -34,7 +34,7 @@ return [
 	"registerButton" => "Register",
 
 	//Recover access form
-	"resetPassword" => "Recover access",
+	"recoverAccess" => "Recover access",
 	"recoverButton" => "Send reset password link",
 
 	//Error messages

@@ -1,7 +1,7 @@
 @extends('auth.master')
 
 @section('card-content')
-        <h1 class="title">@lang('login.resetPassword')</h1>
+        <h1 class="title">@lang('login.recoverAccess')</h1>
 @if (session('status'))
         <p class="success">{{ session('status') }}</p>
         <p class="center"><img src="{{ url('/images/white-check.svg') }}" alt="Check mark" width="100px" /></p>
