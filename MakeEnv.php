@@ -39,7 +39,7 @@ class EnvironmentFile {
         foreach ($lines as $line) {
             $line = trim($line);
             if ($line === "" || $line[0] == '#') {
-                //Blank lines and comment are ignored
+                //Blank lines and comments are ignored
                 continue;
             }
 
