@@ -1,6 +1,7 @@
 @extends('auth.master')
 
 @section('card-content')
+        <h1 class="title">@lang('app.title')</h1>
         <img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="@lang('login.blankAvatarAlt')" />
         <form class="form-signin" role="form" method="POST" action="{{ url('/auth/login') }}">
             <div id="identity">
@@ -28,6 +29,5 @@
 @if (count($errors) == 0)
         <a href="{{ url('/auth/recover') }}" class="action-link">@lang('login.passwordRecovery')</a><br />
 @endif
-
-       <a href="{{ url('/auth/register') }}" class="action-link">@lang('login.registerAccount')</a>
-@stop
+        <a href="{{ url('/auth/register') }}" class="action-link">@lang('login.registerAccount')</a>
+@endsection

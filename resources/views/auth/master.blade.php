@@ -11,7 +11,6 @@
 
 <body class="sviatiHory">
     <div class="card card-container">
-        <h1 class="title">@lang('app.title')</h1>
 @yield('card-content')
     </div>
     <!-- /card-container -->
