@@ -1,33 +1,65 @@
-@extends('auth.master')
+@extends('app')
 
-@section('card-content')
-        <h1 class="title">@lang('login.registerAccount')</h1>
-		<form class="form-signin form-register" role="form" method="POST" action="{{ url('/auth/register') }}">
-            <div id="identity">
-                <span id="reauth-username" class="reauth-username"></span>
-                <label for="inputUsername">@lang('login.username')</label>
-                <input type="text" name="username" id="inputUsername" class="form-control"
-                       value="{{ old('username') }}" placeholder="@lang('login.usernamePlaceholder')" required autofocus />
-                <label for="inputFullname">@lang('login.fullname')</label>
-                <input type="text" name="fullname" id="inputFullname" class="form-control"
-                       value="{{ old('fullname') }}" placeholder="@lang('login.fullnamePlaceholder')" autofocus />
-                <label for="inputEmail">@lang('login.email')</label>
-                <input type="email" name="email" id="inputEmail" class="form-control"
-                       value="{{ old('email') }}" placeholder="@lang('login.emailPlaceholder')" required autofocus />
-                <label for="inputPassword">@lang('login.passwordBoth')</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="@lang('login.passwordPlaceholder')" required />
-                <input type="password" name="password_confirmation" id="inputPasswordConfirm" class="form-control" placeholder="@lang('login.passwordConfirmPlaceholder')" required />
-            </div>@if (count($errors) > 0)
+@section('content')
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">Register</div>
+				<div class="panel-body">
+					@if (count($errors) > 0)
+						<div class="alert alert-danger">
+							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
 
-            <p class="errors">
-@foreach ($errors->all() as $error)
-                {{ $error }}<br />
-@endforeach
-            </p>
-            @endif
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">@lang('login.registerButton')</button>
-        </form>
-        <!-- /form -->
+						<div class="form-group">
+							<label class="col-md-4 control-label">Name</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">E-Mail Address</label>
+							<div class="col-md-6">
+								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Password</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Confirm Password</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password_confirmation">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+								<button type="submit" class="btn btn-primary">
+									Register
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
