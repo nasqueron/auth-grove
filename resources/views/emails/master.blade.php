@@ -1,6 +1,8 @@
-{{email.greetings}}
+@lang('emails.greetings')
+
 
 @yield('mail-content')
 
-{{email.signature-separator}}
-{{email.signature}}
+@lang('emails.signature-separator')
+
+@lang('emails.signature')
