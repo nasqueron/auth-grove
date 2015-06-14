@@ -24,7 +24,7 @@ unified back to 2001. We aren't really into create a login by site.
 
 ## Requirements
 
-* PHP 5.4+
+* PHP 5.5.9+
 
 ## How to develop for Auth Grove?
 
@@ -53,7 +53,7 @@ We also welcome anyone who wants to work on SAML integration, especially Shibbol
 
 ## What we use
 
-* [Laravel](http://laravel.com/docs/5.0), as web application framework
+* [Laravel](http://laravel.com/docs/5.1), as web application framework
 * [Laravel socialite](https://github.com/laravel/socialite), for social authentication
 * A [Bootstrap](http://getbootstrap.com/) interface, to provide a familiar interface
 
