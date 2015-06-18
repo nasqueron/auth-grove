@@ -58,7 +58,7 @@ trait ResetsPasswords {
 	 */
 	protected function getEmailSubject()
 	{
-		return isset($this->subject) ? $this->subject : 'Your Password Reset Link';
+		return isset($this->subject) ? $this->subject : trans('reset-password-subject');
 	}
 
 	/**

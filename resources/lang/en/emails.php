@@ -26,6 +26,9 @@ return [
 	/// Reset password mail
 	///
 
+	//Subject
+	'reset-password-subject' => 'Your password reset link',
+
 	//A paragraph of introduction explaining someone has visited /auth/recover
 	//to recover account access and asked to reset the password by e-mail.
 	'reset-password-intro' => 'Someone (we hope yourself) has requested to recover access to your account.',
