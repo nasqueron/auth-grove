@@ -1,5 +1,7 @@
 <?php namespace AuthGrove\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class LoginDashboardController extends Controller {
 
 	/*
@@ -29,6 +31,11 @@ class LoginDashboardController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		return view(
+			'home',
+			[
+				'user' => Auth::user()->getInformation(),
+			]
+		);
 	}
 }
