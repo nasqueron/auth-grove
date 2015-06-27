@@ -32,6 +32,7 @@ return [
 	
 	'account' => 'Account information',
 	'user-attributes' => [
+	    "id" => "User ID",
 	    "username" => "Username",
 	    "fullname" => "Full name",
 	    "email" => "E-mail",
