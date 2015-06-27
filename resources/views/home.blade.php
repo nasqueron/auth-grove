@@ -9,6 +9,7 @@
 
 				<div class="panel-body">
 					@lang('panel.loggedin')
+
 				</div>
 			</div>
 		</div>
@@ -25,7 +26,7 @@
 @foreach ($user as $key => $attribute)
 							<tr>
 								<th>@lang("panel.user-attributes.$key")</th>
-								<td>{{ $attribute }}</td>
+								<td id="user-info-{{ $key }}">{{ $attribute }}</td>
 							</tr>
 @endforeach
 						</tbody>
