@@ -11,5 +11,4 @@
 @lang('emails.reset-password-origin')
 
 {{ \Keruald\get_remote_addr() }}
-
 @endsection
