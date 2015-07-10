@@ -4,6 +4,10 @@
 @lang('emails.reset-password-intro')
 
 
+@lang('emails.reset-password-login')
+
+{{ $user->username }}
+
 @lang('emails.reset-password-callforaction')
 
 {{ url('auth/reset/' . $token) }}

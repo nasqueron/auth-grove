@@ -33,6 +33,9 @@ return [
 	//to recover account access and asked to reset the password by e-mail.
 	'reset-password-intro' => 'Someone (we hope yourself) has requested to recover access to your account.',
 
+	//To prevent the case login is forgotten, we give it too.
+	'reset-password-login' => 'Your login is:',
+
 	//A paragraph to explain the procedure. It will immediately be followed by
 	//a new line with the URL the user must go to achieve the reset.
 	'reset-password-callforaction' => 'To do so, you can reset your password at the following URL:',
