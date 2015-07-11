@@ -41,6 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		$attributes = array_diff($this->fillable , $this->hidden);
 		$attributes[] = 'created_at';
 		$attributes[] = 'updated_at';
+		array_unshift($attributes, 'id');
 		return $attributes;
 	}
 
