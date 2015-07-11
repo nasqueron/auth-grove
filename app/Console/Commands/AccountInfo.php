@@ -38,7 +38,7 @@ class AccountInfo extends Command
             21
         );
         $line .= $value;
-        $this->comment($line);
+        $this->info($line);
     }
 
     /**
@@ -50,7 +50,7 @@ class AccountInfo extends Command
     {
         $user = AccountHelpers::findUser($this->argument('user'));
         if ($user === null) {
-            $this->comment("User not found.");
+            $this->error("User not found.");
             return;
         }
 
