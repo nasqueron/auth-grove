@@ -31,6 +31,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/**
+	 * Gets fillable but not hidden attributes, plus create/update time
+	 *
+	 * @return Array
+	 */
 	public function getAttributes () {
 		$attributes = array_diff($this->fillable , $this->hidden);
 		$attributes[] = 'created_at';
@@ -40,6 +45,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	/**
 	 * Gets non sensible properties
+	 *
+	 * @return Array
 	 */
 	public function getInformation () {
 		$info = [];
