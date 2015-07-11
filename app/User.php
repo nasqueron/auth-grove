@@ -45,6 +45,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 	/**
+	 * Localizes attribute
+	 *
+	 * @param string $attribute The attribute to localize
+	 * @return string The localized name of the attribute
+	 */
+	public static function localizeAttribute ($attribute) {
+		return trans("panel.user-attributes.$attribute");
+	}
+
+	/**
+	 * Gets default attributes
+	 *
+	 * @return Array an array of string, each a default attribute of the model
+	 */
+	public static function getDefaultAttributes () {
+		$user = new self();
+		return $user->getAttributes();
+	}
+
+	/**
 	 * Gets non sensible properties
 	 *
 	 * @return Array
