@@ -11,6 +11,7 @@ class Kernel extends ConsoleKernel {
 	 * @var array
 	 */
 	protected $commands = [
+		'AuthGrove\Console\Commands\AccountInfo',
 		'AuthGrove\Console\Commands\Inspire',
 	];
 
