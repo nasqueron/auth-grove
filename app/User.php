@@ -33,6 +33,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
 
 	/**
+	 * The currenty user identity
+	 */
+	private $identity;
+
+	/**
 	 * Gets fillable but not hidden attributes, plus create/update time
 	 *
 	 * @return Array
@@ -79,13 +84,38 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $info;
 	}
 
+	///
+	/// Identities
+	///
+
 	/**
-	 * Gets the full name of an user, or if not defined, the username.
+	 * Gets identity name
 	 */
-	public function getName () {
-		if ($this->attributes['fullname'] !== "") {
-			return $this->attributes['fullname'];
+	public function getIdentityOrAccountName () {
+		$identity = $this->getCurrentIdentity();
+		if ($identity === null) {
+			return $this->attributes['username'];
 		}
-		return $this->attributes['username'];
+		return $identity->getName();
+	}
+
+	/**
+	 * Autoselects an identity
+	 */
+	public function autoselectsIdentity () {
+	}
+
+	/**
+	 * Gets the full name of an identity, or if not defined, the username.
+	 *
+	 * If the user hasn't selected an identity yet, we use the user's username.
+	 */
+	public function getCurrentIdentity () {
+		if ($this->identity = null) {
+			//Tries to autoselect identity if there is only one
+			//or if one is configured to be used by default.
+			$this->autoselectsIdentity();
+		}
+		return $this->identity;
 	}
 }

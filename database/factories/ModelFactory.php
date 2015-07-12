@@ -19,3 +19,12 @@ $factory->define(App\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Identity::class, function ($faker) {
+    return [
+        'uuid' => \Keruald\uuid(),
+        'user_id' => $faker->user_id,
+        'username' => $faker->username,
+        'fullname' => $faker->fullname,
+    ];
+});
