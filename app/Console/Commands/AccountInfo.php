@@ -13,7 +13,7 @@ class AccountInfo extends Command
      *
      * @var string
      */
-    protected $signature = 'account:info {user}';
+    protected $signature = 'account:info {user} {--format=human}';
 
     /**
      * The console command description.
@@ -60,14 +60,29 @@ class AccountInfo extends Command
      */
     public function handle()
     {
+        $format = $this->option('format');
+
         $user = AccountHelpers::findUser($this->argument('user'));
         if ($user === null) {
             $this->error("User not found.");
             return;
         }
 
-        foreach ($user->getInformation() as $attribute => $value) {
-            $this->printInformationAttribute($attribute, $value);
+        $information = $user->getInformation();
+
+        switch ($format) {
+            case "human":
+                foreach ($user->getInformation() as $attribute => $value) {
+                    $this->printInformationAttribute($attribute, $value);
+                }
+                break;
+
+            case "json":
+                echo json_encode($information), "\n";
+                break;
+
+            default:
+                $this->error("Unknown format: $format");
         }
     }
 }

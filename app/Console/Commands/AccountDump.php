@@ -12,7 +12,7 @@ class AccountDump extends Command
      *
      * @var string
      */
-    protected $signature = 'account:dump';
+    protected $signature = 'account:dump {--format=human}';
 
     /**
      * The console command description.
@@ -38,13 +38,23 @@ class AccountDump extends Command
      */
     public function handle()
     {
-        $attributes = User::getDefaultAttributes();
-        $headers = array_map('\AuthGrove\User::localizeAttribute', $attributes);
+        $format = $this->option('format');
 
+        $attributes = User::getDefaultAttributes();
         $users = User::all($attributes)->toArray();
 
-        $this->table($headers, $users);
+        switch ($format) {
+            case "human":
+                $headers = array_map('\AuthGrove\User::localizeAttribute', $attributes);
+                $this->table($headers, $users);
+                break;
 
-        return;
+            case "json":
+                echo json_encode($users);
+                break;
+
+            default:
+                $this->error("Unknown format: $format");
+        }
     }
 }
