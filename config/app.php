@@ -137,6 +137,11 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 
 		/*
+		 * Third-party Service Providers...
+		 */
+		'Artisaninweb\Enum\EnumServiceProvider',
+
+		/*
 		 * Application Service Providers...
 		 */
 		'AuthGrove\Providers\AppServiceProvider',
@@ -171,6 +176,7 @@ return [
 		'Crypt'     => 'Illuminate\Support\Facades\Crypt',
 		'DB'        => 'Illuminate\Support\Facades\DB',
 		'Eloquent'  => 'Illuminate\Database\Eloquent\Model',
+		'EnumMap'   => 'Artisaninweb\Enum\Facades\EnumFacade',
 		'Event'     => 'Illuminate\Support\Facades\Event',
 		'File'      => 'Illuminate\Support\Facades\File',
 		'Hash'      => 'Illuminate\Support\Facades\Hash',
