@@ -23,6 +23,12 @@ class AccountInfo extends Command
     protected $description = 'Get information about an account.';
 
     /**
+     * The length of a padded localized attribute
+     * @var int
+     */
+    const ATTRIBUTE_LEN = 21;
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -32,10 +38,16 @@ class AccountInfo extends Command
         parent::__construct();
     }
 
+    /**
+     * Prints a padded "attribute: value" line.
+     *
+     * @param string $attribute The attribute
+     * @param string $value The value for this attribute
+     */
     protected function printInformationAttribute ($attribute, $value) {
         $line  = \Keruald\mb_str_pad(
             AccountHelpers::localizeUserAttribute($attribute),
-            21
+            self::ATTRIBUTE_LEN
         );
         $line .= $value;
         $this->info($line);
