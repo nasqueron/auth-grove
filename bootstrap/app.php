@@ -27,18 +27,18 @@ $app = new Illuminate\Foundation\Application(
 */
 
 $app->singleton(
-	'Illuminate\Contracts\Http\Kernel',
-	'AuthGrove\Http\Kernel'
+    Illuminate\Contracts\Http\Kernel::class,
+    AuthGrove\Http\Kernel::class
 );
 
 $app->singleton(
-	'Illuminate\Contracts\Console\Kernel',
-	'AuthGrove\Console\Kernel'
+    Illuminate\Contracts\Console\Kernel::class,
+    AuthGrove\Console\Kernel::class
 );
 
 $app->singleton(
-	'Illuminate\Contracts\Debug\ExceptionHandler',
-	'AuthGrove\Exceptions\Handler'
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    AuthGrove\Exceptions\Handler::class
 );
 
 /*
