@@ -2,7 +2,7 @@
 
 /**
  * Test authentication views with GET request and form title checks.
- * 
+ *
  * A test failure means an auth view is broken.
  */
 class AuthViewsTest extends TestCase {
@@ -14,7 +14,7 @@ class AuthViewsTest extends TestCase {
         $this->visit('/')
              ->see('form-signin');
     }
-    
+
     /**
      * Tests the register account view
      */
@@ -22,7 +22,7 @@ class AuthViewsTest extends TestCase {
         $this->visit('/auth/register')
              ->see('form-register');
     }
-    
+
     /**
      * Tests the recover access view
      */
@@ -38,5 +38,5 @@ class AuthViewsTest extends TestCase {
         $this->visit('/auth/reset/foo')
              ->see('form-reset');
     }
-    
+
 }
