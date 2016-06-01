@@ -30,7 +30,15 @@ class AuthViewsTest extends TestCase {
         $this->visit('/auth/recover')
              ->see('form-recover');
     }
-    
+
+    /**
+     * Tests the lack of reset password view without token
+     */
+    public function testResetPasswordViewWithoutToken() {
+        $response = $this->call('GET', '/auth/reset');
+        $this->assertEquals(404, $response->getStatusCode());
+    }
+
     /**
      * Tests the reset password view
      */
