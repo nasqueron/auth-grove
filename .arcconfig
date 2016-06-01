@@ -1,4 +1,5 @@
 {
-  "phabricator.uri": "http://devcentral.nasqueron.org/",
-  "repository.callsign": "GROVE"
+  "phabricator.uri": "https://devcentral.nasqueron.org",
+  "repository.callsign": "GROVE",
+  "unit.engine": "PhpunitTestEngine"
 }
