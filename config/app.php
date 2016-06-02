@@ -30,6 +30,26 @@ return [
 
 	/*
 	|--------------------------------------------------------------------------
+	| Proxies serving requests
+	|--------------------------------------------------------------------------
+	|
+	| Auth Grove can handle proxy headers like HTTP_X_FORWARDED_PROTO according
+	| your configuration.
+	|
+	|   - To always trust forward headers, adds a star entry:  ['*']
+	|   - To never trust any server, use an empty array:       []
+	|   - To specify the proxies servers, create an array with each IP.
+	|
+	| If you put Auth Grove on an back-end application server, with a front-end
+	| nginx responsible for SSL termination, you can set the front-end IPs or
+	| blindly trust any remote address with a magic entry '*'.
+	|
+	*/
+
+	'proxy' => env('TRUST_ALL_PROXIES', false) ? ['*'] : [],
+
+	/*
+	|--------------------------------------------------------------------------
 	| Application Timezone
 	|--------------------------------------------------------------------------
 	|

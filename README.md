@@ -43,7 +43,8 @@ A minimal way to run the container is:
 ```
 docker run -t -d \
 	--link <a MySQL or MariaDB container>:mysql \
-	-p <the port you want>:80 \
+	-p 127.0.0.1:<the port you want>:80 \
+	-e TRUST_ALL_PROXIES=1 \
 	-e DB_HOST=mysql \
 	-e DB_DATABASE=<name of the database> \
 	-e DB_USERNAME=<login for this database> \
