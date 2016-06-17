@@ -2,7 +2,7 @@
     "name": "nasqueron/auth-grove",
     "description": "Authentication grove to provide unified login and SSO.",
     "keywords": ["nasqueron", "auth", "authentication", "login", "sso"],
-    "license": "BSD",
+    "license": "BSD-2-Clause",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
