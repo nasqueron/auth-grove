@@ -22,7 +22,7 @@ class AccountReset extends Command
      *
      * @var string
      */
-    protected $description = 'Gets a reset password link for an account.';
+    protected $description = 'Sends a mail with a reset password link for an account.';
 
     /**
      * The user e-mail
