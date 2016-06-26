@@ -1,42 +1,78 @@
-<?php namespace AuthGrove\Http\Controllers\Auth;
+<?php
+
+namespace AuthGrove\Http\Controllers\Auth;
+
+use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 use AuthGrove\Http\Controllers\Controller;
-use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
-use Illuminate\Contracts\Auth\PasswordBroker;
-use AuthGrove\Services\AuthenticatesAndRegistersUsers;
-use AuthGrove\Services\ResetsPasswords;
+use AuthGrove\Services\Registrar;
+use AuthGrove\User;
 
-class AuthController extends Controller {
+use Route;
 
-	/*
-	|--------------------------------------------------------------------------
-	| Registration & Login Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller handles the registration of new users, as well as the
-	| authentication of existing users. By default, this controller uses
-	| a simple trait to add these behaviors. Why don't you explore it?
-	|
-	*/
+class AuthController extends Controller implements RegistrarContract
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Registration & Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users, as well as the
+    | authentication of existing users. By default, this controller uses
+    | a simple trait to add these behaviors. Why don't you explore it?
+    |
+    */
 
-	use AuthenticatesAndRegistersUsers;
-	use ResetsPasswords;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins, Registrar;
 
-	/**
-	 * Create a new authentication controller instance.
-	 *
-	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
-	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
-	 * @param  \Illuminate\Contracts\Auth\PasswordBroker  $passwords
-	 * @return void
-	 */
-	public function __construct(Guard $auth, Registrar $registrar, PasswordBroker $passwords)
-	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
-		$this->passwords = $passwords;
+    /**
+     * Where to redirect users after login / registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
 
-		$this->middleware('guest', ['except' => 'getLogout']);
-	}
+    /**
+     * The field to use as username
+     *
+     * @var string
+     */
+    protected $username  = 'username';
+
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    }
+
+    /**
+     * Register auth routes
+     */
+     public static function registerRoutes () {
+        // Login
+        Route::get('/auth', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+        Route::get('/auth/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+        Route::post('/auth/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+
+        // Logout
+        Route::get('/auth/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+
+        // Registration
+        Route::get('/auth/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
+        Route::post('/auth/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+
+        // Recover account
+        Route::get('/auth/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getRecover']);
+        Route::post('/auth/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@postRecover']);
+
+        // Reset password (with a token received by mail)
+        Route::get('/auth/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getReset']);
+        Route::post('/auth/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+     }
 }

@@ -2,9 +2,11 @@
 
 use AuthGrove\User;
 use Validator;
-use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
-class Registrar implements RegistrarContract {
+/**
+ * Trait offering an implementation of Illuminate\Contracts\Auth\Registrar
+ */
+trait Registrar {
 
 	/**
 	 * Get a validator for an incoming registration request.

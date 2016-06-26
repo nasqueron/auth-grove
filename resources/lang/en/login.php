@@ -20,7 +20,7 @@ return [
 	"passwordRecovery" => "Password recovery options",
 	"registerAccount" => "Register an account", //link
 	"blankAvatarAlt" => "A door, as a blank avatar",
-	
+
 	//Register form
 	"usernamePlaceholder" => "Username. Will be used as login.",
 	"fullnamePlaceholder" => "Full name. For example, your real name.",
@@ -41,6 +41,4 @@ return [
 	"resetPassword" => "New password",
 	"resetButton" => "Reset password",
 
-	//Error messages
-	"failedLogin" => "These credentials do not match our records.",
 ];

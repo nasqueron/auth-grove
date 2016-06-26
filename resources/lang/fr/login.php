@@ -26,6 +26,4 @@ return [
 	"registerAccount" => "Créer un compte",
 	"blankAvatarAlt" => "Une porte, comme avatar par défaut.",
 
-	// Error messages
-	"failedLogin" => "Le login ou mot de passe est incorrect.",
 ];

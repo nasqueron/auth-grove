@@ -1,6 +1,5 @@
 <?php namespace AuthGrove\Http\Middleware;
 
-use Illuminate\Contracts\Routing\Middleware;
 use AuthGrove\Enums\TrustProxyConfigurationMode;
 use Config;
 use Closure;
@@ -10,7 +9,7 @@ use Closure;
  *
  * See http://symfony.com/doc/current/cookbook/request/load_balancer_reverse_proxy.html
  */
-class TrustProxy implements Middleware {
+class TrustProxy {
 	/**
 	 * Handle an incoming request.
 	 *
