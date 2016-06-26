@@ -120,7 +120,7 @@ class AccountReset extends Command
                     "result" => "ok",
                     "email" => $this->email
                 ]);
-                echo PḦP_EOL;
+                echo PHP_EOL;
                 break;
 
             default:
