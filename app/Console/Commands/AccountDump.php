@@ -19,7 +19,7 @@ class AccountDump extends Command
      *
      * @var string
      */
-    protected $description = 'Dumps the accounts list.';
+    protected $description = 'Dump the accounts list';
 
     /**
      * Create a new command instance.

@@ -20,7 +20,7 @@ class AccountInfo extends Command
      *
      * @var string
      */
-    protected $description = 'Get information about an account.';
+    protected $description = 'Get information about an account';
 
     /**
      * The length of a padded localized attribute
