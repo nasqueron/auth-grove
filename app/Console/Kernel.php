@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel {
 		'AuthGrove\Console\Commands\AccountDump',
 		'AuthGrove\Console\Commands\AccountReset',
 		'AuthGrove\Console\Commands\Inspire',
+		'AuthGrove\Console\Commands\DatabaseShell',
 	];
 
 	/**
