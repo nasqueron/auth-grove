@@ -147,7 +147,7 @@ class DatabaseShell extends Command {
      * The psql terminal doesn't provide arguments for the password
      * or for the charset, but they can be provided in environment.
      *
-     * @retur narary
+     * @return array
      */
     protected function getEnvironmentForPgsql () {
         return [
