@@ -1,6 +1,9 @@
 <?php namespace AuthGrove\Http\Middleware;
 
+use Illuminate\Http\Request;
+
 use AuthGrove\Enums\TrustProxyConfigurationMode;
+
 use Config;
 use Closure;
 
@@ -17,7 +20,7 @@ class TrustProxy {
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle(Request $request, Closure $next)
 	{
 		$proxy = Config::get('app.proxy');
 
