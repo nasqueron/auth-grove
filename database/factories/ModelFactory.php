@@ -11,9 +11,10 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(AuthGrove\User::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->username,
+        'fullname' => $faker->name,
         'email' => $faker->email,
         'password' => str_random(10),
         'remember_token' => str_random(10),
