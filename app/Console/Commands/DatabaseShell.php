@@ -38,9 +38,9 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Runs an interactive database shell
+     * Runs an interactive database shell.
      *
-     * Shell to run depends of the engine set in configuration.
+     * The command to run depends of the engine set in configuration.
      */
     protected function runInteractiveShell () {
         $engine = Config::get('database.default');
@@ -54,9 +54,11 @@ class DatabaseShell extends Command {
     ///
 
     /**
-     * Gets the command to run an interactive shell for the specified db engine
+     * Gets the command to run an interactive shell for the specified db engine.
      *
-     * @param string $engine The database engine
+     * @param string $engine The database engine to get the command for
+     * @return string The command to run
+     * @throws LogicException when not implemented for the selected engine
      */
     protected function getCommand ($engine) {
         $method = 'getCommandFor' . ucfirst($engine);
@@ -68,7 +70,7 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets environment to run the command
+     * Gets environment to run the command for the specified engine.
      *
      * @param string $engine The database engine
      *
@@ -85,7 +87,9 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets escaped database.connections option
+     * Gets the shell escaped form for the specified database.connections option.
+     *
+     * @return string
      */
     private function getOption ($option) {
         $key = 'database.connections.' . $option;
@@ -94,7 +98,9 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets command to run for a MySQL command line tool
+     * Gets command to run for a MySQL command line tool.
+     *
+     * @return string
      */
     protected function getCommandForMysql () {
         return
@@ -106,7 +112,9 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets command to run for a PostgreSQL interactive terminal
+     * Gets command to run for a PostgreSQL interactive terminal.
+     *
+     * @return string
      */
     protected function getCommandForPgsql () {
         return
@@ -116,7 +124,9 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets command to run for a SQL server client
+     * Gets command to run for a SQL server client.
+     *
+     * @return string
      */
     protected function getCommandForSqlsrv () {
             'Sqlcmd -S ' . $this->getOption('sqlsrv.host')
@@ -126,14 +136,16 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets command to run for a SQLite command line interaface
+     * Gets command to run for a SQLite command line interface.
+     *
+     * @return string
      */
     protected function getCommandForSqlite () {
         return 'sqlite3 ' .  $this->getOption('sqlite.database');
     }
 
     /**
-     * Gets an array with the current environment variables
+     * Gets an array with the current environment variables.
      *
      * @return array
      */
@@ -142,7 +154,7 @@ class DatabaseShell extends Command {
     }
 
     /**
-     * Gets environment for a PostgreSQL interactive terminal
+     * Gets environment for a PostgreSQL interactive terminal.
      *
      * The psql terminal doesn't provide arguments for the password
      * or for the charset, but they can be provided in environment.
@@ -152,7 +164,8 @@ class DatabaseShell extends Command {
     protected function getEnvironmentForPgsql () {
         return [
             // To store the password in the environment is deprecated,
-            // but no alternative solution is given.
+            // but no alternative solution is handy without hints on
+            // the infrastructure given in configuration file.
             'PGPASSWORD' => Config::get('database.connections.pgsql.password'),
             'PGCLIENTENCODING' => Config::get('database.connections.pgsql.charset'),
         ] + $this->getCurrentEnvironment();
@@ -163,24 +176,25 @@ class DatabaseShell extends Command {
     ///
 
     /**
-     * Runs a command interactively
+     * Runs a command interactively.
      *
      * @param string $command The command to run
      * @param array|null $env The environment to pass, or null if current environment should be kept intact.
      */
     protected function runCommand ($command, $env = null) {
         $spec = [STDIN, STDOUT, STDERR];
+        $pipes = [];
 
         $proc = proc_open(
             $command,
             $spec,
             $pipes,
-            null,
+            null, // Current working directory is fine.
             $env
         );
 
         if (!is_resource($proc)) {
-            throw new \Exception('Failed to passthru a command');
+            throw new \Exception('Failed to execute a command');
         }
 
         proc_close($proc);
