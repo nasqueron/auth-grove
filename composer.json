@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "artisaninweb/laravel-enum": "1.0.*",
-        "keruald/globalfunctions": "~0.3"
+        "keruald/globalfunctions": "~0.3",
+        "laravel/socialite": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
