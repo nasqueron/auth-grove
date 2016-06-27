@@ -4,7 +4,9 @@ namespace AuthGrove\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Password;
+
 use AuthGrove\Console\Services\AccountHelpers;
 
 class AccountReset extends Command
@@ -66,7 +68,7 @@ class AccountReset extends Command
         ];
 
         //Tries to send the mail
-        $response = Password::sendResetLink($credentials, function($m) use ($subject)
+        $response = Password::sendResetLink($credentials, function(Message $m) use ($subject)
         {
             $m->subject($subject);
         });

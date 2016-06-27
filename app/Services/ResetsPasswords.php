@@ -5,6 +5,7 @@ namespace AuthGrove\Services;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\RedirectsUsers;
@@ -296,7 +297,7 @@ trait ResetsPasswords {
      * @param  string  $password
      * @return void
      */
-    protected function resetPassword($user, $password) {
+    protected function resetPassword(CanResetPassword $user, $password) {
         $user->forceFill([
             'password' => bcrypt($password),
             'remember_token' => Str::random(60),
