@@ -14,22 +14,22 @@ return [
 	///
 	/// Navigation
 	///
-	
+
 	'home' => 'Home',
 	'logout' => 'Logout',
 	'toggle-navigation' => 'Toggle Navigation',
-	
+
 	///
 	/// Home - Status
 	///
-	
+
 	'status' => 'Status',
 	'loggedin' => "You're logged in.",
-	
+
 	///
 	/// Home - Account
 	///
-	
+
 	'account' => 'Account information',
 	'user-attributes' => [
 	    "id" => "User ID",
@@ -39,5 +39,5 @@ return [
 	    "created_at" => "Account created",
 	    "updated_at" => "Last updated",
     ],
-	
+
 ];
