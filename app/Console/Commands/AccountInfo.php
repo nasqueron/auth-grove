@@ -3,7 +3,6 @@
 namespace AuthGrove\Console\Commands;
 
 use Illuminate\Console\Command;
-use AuthGrove\User;
 use AuthGrove\Console\Services\AccountHelpers as AccountHelpers;
 
 class AccountInfo extends Command

@@ -5,7 +5,6 @@ namespace AuthGrove\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Support\Facades\Password;
-use AuthGrove\User;
 use AuthGrove\Console\Services\AccountHelpers;
 
 class AccountReset extends Command
