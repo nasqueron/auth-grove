@@ -105,7 +105,7 @@ class AccountReset extends Command
         $success = $this->sendResetMail();
         if (!$success) {
             $this->error("The user has been found, but the password broker considers this user is invalid.");
-            exit;
+            return;
         }
 
         //Regular output

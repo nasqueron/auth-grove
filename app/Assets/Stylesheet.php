@@ -38,7 +38,6 @@ class Stylesheet {
     static private function print404 () {
         static::print404Headers();
         echo "/* 404 - Stylesheet not found. */";
-        exit;
     }
 
     ///
@@ -49,7 +48,7 @@ class Stylesheet {
         $name = $_GET['name'];
 
         if (!Assets::isValidAssetName($name)) {
-            die("Invalid resource name: $name");
+            throw new \RuntimeException("Invalid resource name: $name");
         }
 
         switch ($_GET['resource']) {
@@ -58,7 +57,7 @@ class Stylesheet {
                 break;
 
             default;
-                die("Resource not found.");
+                throw new \RuntimeException("esource not found.");
         }
     }
 }
