@@ -35,7 +35,7 @@ class TrustProxy {
 				break;
 
 			default:
-				throw new ArgumentException("Unhandled configuration mode: $mode");
+				throw new \ArgumentException("Unhandled configuration mode: $mode");
 		}
 
 		return $next($request);

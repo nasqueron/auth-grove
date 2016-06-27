@@ -81,7 +81,7 @@ class AccountReset extends Command
                 return false;
 
             default:
-                throw new Exception("Unhandled password broker response: " . $response);
+                throw new \Exception("Unhandled password broker response: " . $response);
         }
     }
 

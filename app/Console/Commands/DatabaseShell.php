@@ -180,7 +180,7 @@ class DatabaseShell extends Command {
         );
 
         if (!is_resource($proc)) {
-            throw new Exception('Failed to passthru a command');
+            throw new \Exception('Failed to passthru a command');
         }
 
         proc_close($proc);
