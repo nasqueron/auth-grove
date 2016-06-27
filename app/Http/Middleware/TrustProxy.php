@@ -22,14 +22,14 @@ class TrustProxy {
 		$proxy = Config::get('app.proxy');
 
 		switch ($mode = self::getConfigurationMode($proxy)) {
-			case TrustProxyConfigurationMode::TrustNone:
+			case TrustProxyConfigurationMode::TRUST_NONE:
 				break;
 
-			case TrustProxyConfigurationMode::TrustSome:
+			case TrustProxyConfigurationMode::TRUST_SOME:
 				$request->setTrustedProxies($proxy);
 				break;
 
-			case TrustProxyConfigurationMode::TrustAll:
+			case TrustProxyConfigurationMode::TRUST_ALL:
 				$remoteAddr = $request->server->get('REMOTE_ADDR');
 				$request->setTrustedProxies([ '127.0.0.1', $remoteAddr ]);
 				break;
@@ -46,13 +46,13 @@ class TrustProxy {
 	 */
 	public static function getConfigurationMode ($configValue) {
 		if (!is_array($configValue) || !count($configValue)) {
-			return TrustProxyConfigurationMode::TrustNone;
+			return TrustProxyConfigurationMode::TRUST_NONE;
 		}
 
 		if (in_array('*', $configValue)) {
-			return TrustProxyConfigurationMode::TrustAll;
+			return TrustProxyConfigurationMode::TRUST_ALL;
 		}
 
-		return TrustProxyConfigurationMode::TrustSome;
+		return TrustProxyConfigurationMode::TRUST_SOME;
 	}
 }
