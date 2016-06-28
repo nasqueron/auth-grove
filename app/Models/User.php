@@ -93,4 +93,26 @@ class User extends Model implements AuthenticatableContract,
         }
         return $this->attributes['username'];
     }
+
+    /**
+     * Tries to get the local user matching an external source.
+     *
+     * @param string $source_name The name of the source to check
+     * @param string $source_user_id The user ID at the specified source
+     * @param &User If an user has been found, contains that user object
+     * @return bool true if an user has been found; otherwise, false
+     */
+    public static function tryGetFromExternalSource ($source_name, $source_user_id, &$user) {
+        $source = UserExternalSource::where([
+            'source_name' => $source_name,
+            'source_user_id' => $source_user_id
+        ])->first();
+
+        if ($source === null) {
+            return false;
+        }
+
+        $user = $source->getUser();
+        return true;
+    }
 }
