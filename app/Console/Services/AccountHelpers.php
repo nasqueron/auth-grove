@@ -42,4 +42,5 @@ class AccountHelpers {
         }
         return $localizedString;
     }
+
 }

@@ -37,60 +37,60 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-	/**
-	 * Gets fillable but not hidden attributes, plus create/update time
-	 *
-	 * @return Array
-	 */
-	public function getAttributes () {
-		$attributes = array_diff($this->fillable , $this->hidden);
-		$attributes[] = 'created_at';
-		$attributes[] = 'updated_at';
-		array_unshift($attributes, 'id');
-		return $attributes;
-	}
+    /**
+     * Gets fillable but not hidden attributes, plus create/update time
+     *
+     * @return Array
+     */
+    public function getAttributes () {
+        $attributes = array_diff($this->fillable , $this->hidden);
+        $attributes[] = 'created_at';
+        $attributes[] = 'updated_at';
+        array_unshift($attributes, 'id');
+        return $attributes;
+    }
 
-	/**
-	 * Localizes attribute
-	 *
-	 * @param string $attribute The attribute to localize
-	 * @return string The localized name of the attribute
-	 */
-	public static function localizeAttribute ($attribute) {
-		return trans("panel.user-attributes.$attribute");
-	}
+    /**
+     * Localizes attribute
+     *
+     * @param string $attribute The attribute to localize
+     * @return string The localized name of the attribute
+     */
+    public static function localizeAttribute ($attribute) {
+        return trans("panel.user-attributes.$attribute");
+    }
 
-	/**
-	 * Gets default attributes
-	 *
-	 * @return Array an array of string, each a default attribute of the model
-	 */
-	public static function getDefaultAttributes () {
-		$user = new self();
-		return $user->getAttributes();
-	}
+    /**
+     * Gets default attributes
+     *
+     * @return Array an array of string, each a default attribute of the model
+     */
+    public static function getDefaultAttributes () {
+        $user = new self();
+        return $user->getAttributes();
+    }
 
-	/**
-	 * Gets non sensible properties
-	 *
-	 * @return Array
-	 */
-	public function getInformation () {
-		$info = [];
-		$attributes = $this->getAttributes();
-		foreach ($attributes as $attribute) {
-			$info[$attribute] = $this->attributes[$attribute];
-		}
-		return $info;
-	}
+    /**
+     * Gets non sensible properties
+     *
+     * @return Array
+     */
+    public function getInformation () {
+        $info = [];
+        $attributes = $this->getAttributes();
+        foreach ($attributes as $attribute) {
+            $info[$attribute] = $this->attributes[$attribute];
+        }
+        return $info;
+    }
 
-	/**
-	 * Gets the full name of an user, or if not defined, the username.
-	 */
-	public function getName () {
-		if ($this->attributes['fullname'] !== "") {
-			return $this->attributes['fullname'];
-		}
-		return $this->attributes['username'];
-	}
+    /**
+     * Gets the full name of an user, or if not defined, the username.
+     */
+    public function getName () {
+        if ($this->attributes['fullname'] !== "") {
+            return $this->attributes['fullname'];
+        }
+        return $this->attributes['username'];
+    }
 }

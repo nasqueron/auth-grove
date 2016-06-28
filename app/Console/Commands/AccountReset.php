@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Password;
 
 use AuthGrove\Console\Services\AccountHelpers;
 
-class AccountReset extends Command
-{
+class AccountReset extends Command {
+
     /**
      * The name and signature of the console command.
      *
@@ -37,8 +37,7 @@ class AccountReset extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
 
@@ -91,8 +90,7 @@ class AccountReset extends Command
      *
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         //Gets the information
         $user = AccountHelpers::findUser($this->argument('user'));
         if ($user === null) {
@@ -128,4 +126,6 @@ class AccountReset extends Command
                 $this->error("Unknown format: $format");
         }
     }
+
+
 }

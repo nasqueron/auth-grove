@@ -5,8 +5,8 @@ namespace AuthGrove\Console\Commands;
 use Illuminate\Console\Command;
 use AuthGrove\Console\Services\AccountHelpers as AccountHelpers;
 
-class AccountInfo extends Command
-{
+class AccountInfo extends Command {
+
     /**
      * The name and signature of the console command.
      *
@@ -32,8 +32,7 @@ class AccountInfo extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
 
@@ -57,8 +56,7 @@ class AccountInfo extends Command
      *
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $format = $this->option('format');
 
         $user = AccountHelpers::findUser($this->argument('user'));
@@ -84,4 +82,5 @@ class AccountInfo extends Command
                 $this->error("Unknown format: $format");
         }
     }
+
 }

@@ -5,8 +5,8 @@ namespace AuthGrove\Console\Commands;
 use Illuminate\Console\Command;
 use AuthGrove\Models\User;
 
-class AccountDump extends Command
-{
+class AccountDump extends Command {
+
     /**
      * The name and signature of the console command.
      *
@@ -26,18 +26,16 @@ class AccountDump extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
-    
+
     /**
      * Execute the console command.
      *
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $format = $this->option('format');
 
         $attributes = User::getDefaultAttributes();
@@ -57,4 +55,5 @@ class AccountDump extends Command
                 $this->error("Unknown format: $format");
         }
     }
+
 }
