@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => AuthGrove\User::class,
+            'model' => AuthGrove\Models\User::class,
         ],
 
         // 'users' => [

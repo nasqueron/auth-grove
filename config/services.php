@@ -30,7 +30,7 @@ return [
 	],
 
 	'stripe' => [
-		'model'  => 'AuthGrove\User',
+		'model'  => 'AuthGrove\Models\User',
 		'key' => '',
 		'secret' => '',
 	],

@@ -2,7 +2,7 @@
 
 namespace AuthGrove\Console\Services;
 
-use AuthGrove\User;
+use AuthGrove\Models\User;
 
 class AccountHelpers {
 

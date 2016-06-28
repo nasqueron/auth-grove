@@ -1,4 +1,4 @@
-<?php namespace AuthGrove;
+<?php namespace AuthGrove\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

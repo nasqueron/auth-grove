@@ -1,6 +1,6 @@
 <?php namespace AuthGrove\Services;
 
-use AuthGrove\User;
+use AuthGrove\Models\User;
 use Validator;
 
 /**

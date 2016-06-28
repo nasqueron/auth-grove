@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(AuthGrove\User::class, function (Faker\Generator $faker) {
+$factory->define(AuthGrove\Models\User::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->username,
         'fullname' => $faker->name,

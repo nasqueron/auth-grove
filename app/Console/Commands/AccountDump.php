@@ -3,7 +3,7 @@
 namespace AuthGrove\Console\Commands;
 
 use Illuminate\Console\Command;
-use AuthGrove\User as User;
+use AuthGrove\Models\User;
 
 class AccountDump extends Command
 {
@@ -45,7 +45,7 @@ class AccountDump extends Command
 
         switch ($format) {
             case "human":
-                $headers = array_map('\AuthGrove\User::localizeAttribute', $attributes);
+                $headers = array_map('\AuthGrove\Models\User::localizeAttribute', $attributes);
                 $this->table($headers, $users);
                 break;
 

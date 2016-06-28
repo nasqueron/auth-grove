@@ -9,6 +9,6 @@ class UsersTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        factory(AuthGrove\User::class, 50)->create();
+        factory(AuthGrove\Models\User::class, 50)->create();
     }
 }
