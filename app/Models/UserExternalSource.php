@@ -28,6 +28,15 @@ class UserExternalSource extends Model {
     protected $hidden = [];
 
     /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
+
+    /**
      * Gets fillable but not hidden attributes, plus create/update time.
      *
      * @return Array
