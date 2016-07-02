@@ -1,12 +1,10 @@
 <?php
 
-use Nasqueron\Notifications\Providers\EventServiceProvider;
-
 class EventServiceProviderTest extends TestCase {
 
     public function testType () {
         $this->assertServiceInstanceOf(
-            'Illuminate\Contracts\Events\Dispatcher',
+            Illuminate\Contracts\Events\Dispatcher::class,
             'events'
         );
     }
