@@ -13,8 +13,8 @@ use AuthGrove\Models\User;
 use Config;
 use Route;
 
-class AuthController extends Controller implements RegistrarContract
-{
+class AuthController extends Controller implements RegistrarContract {
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -66,10 +66,10 @@ class AuthController extends Controller implements RegistrarContract
     }
 
     /**
-     * Gets a specific authentication route
+     * Gets a specific authentication route.
      *
      * @param $action The authentication action (e.g. login)
-     * @return string The route URL (e.g. /auth/loin)
+     * @return string The route URL (e.g. /auth/login)
      */
     public static function getRoute ($action) {
         $prefix = static::getRoutePrefix();
@@ -107,4 +107,5 @@ class AuthController extends Controller implements RegistrarContract
         Route::get($auth  . '/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getReset']);
         Route::post($auth . '/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
      }
+
 }
