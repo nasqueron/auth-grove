@@ -1,32 +1,29 @@
-<?php namespace AuthGrove\Providers;
+<?php
+
+namespace AuthGrove\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+use Config;
+
 class EventServiceProvider extends ServiceProvider {
 
-	/**
-	 * The event handler mappings for the application.
-	 *
-	 * @var array
-	 */
-	protected $listen = [
-		'event.name' => [
-			'EventListener',
-		],
-	];
+    /**
+     * Registers all our listeners as subscriber classes.
+     */
+    private function subscribeListeners () {
+        $this->subscribe += Config::get('app.listeners');
+    }
 
-	/**
-	 * Register any other events for your application.
-	 *
-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
-	 * @return void
-	 */
-	public function boot(DispatcherContract $events)
-	{
-		parent::boot($events);
-
-		//
-	}
-
+    /**
+     * Registers any other events for your application.
+     *
+     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @return void
+     */
+    public function boot(DispatcherContract $events) {
+        $this->subscribeListeners();
+        parent::boot($events);
+    }
 }

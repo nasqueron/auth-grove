@@ -184,6 +184,19 @@ return [
 
 	],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Events listeners
+    |--------------------------------------------------------------------------
+    |
+    | The events listeners listed here will be automatically loaded on the
+    | request to your application.
+    |
+    */
+
+    'listeners' => [
+    ],
+
 	/*
 	|--------------------------------------------------------------------------
 	| Class Aliases
