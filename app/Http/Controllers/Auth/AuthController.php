@@ -10,6 +10,7 @@ use AuthGrove\Http\Controllers\Controller;
 use AuthGrove\Services\Registrar;
 use AuthGrove\Models\User;
 
+use Config;
 use Route;
 
 class AuthController extends Controller implements RegistrarContract
@@ -51,28 +52,59 @@ class AuthController extends Controller implements RegistrarContract
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
+    ///
+    /// Routes
+    ///
+
+    /**
+     * Gets the URL prefix for the authentication routes.
+     *
+     * @return string
+     */
+    protected static function getRoutePrefix () {
+        return Config::get('auth.route');
+    }
+
+    /**
+     * Gets a specific authentication route
+     *
+     * @param $action The authentication action (e.g. login)
+     * @return string The route URL (e.g. /auth/loin)
+     */
+    public static function getRoute ($action) {
+        $prefix = static::getRoutePrefix();
+
+        if ((string)$action === '') {
+            return $prefix;
+        }
+
+        return $prefix . '/' . $action;
+    }
+
     /**
      * Registers auth routes.
      */
      public static function registerRoutes () {
+        $auth = static::getRoutePrefix();
+
         // Login
-        Route::get('/auth', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
-        Route::get('/auth/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
-        Route::post('/auth/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+        Route::get($auth, ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+        Route::get($auth  . '/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+        Route::post($auth . '/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
 
         // Logout
-        Route::get('/auth/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+        Route::get($auth  . '/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 
         // Registration
-        Route::get('/auth/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
-        Route::post('/auth/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+        Route::get($auth  . '/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
+        Route::post($auth . '/register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
 
         // Recover account
-        Route::get('/auth/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getRecover']);
-        Route::post('/auth/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@postRecover']);
+        Route::get($auth  . '/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getRecover']);
+        Route::post($auth . '/recover', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@postRecover']);
 
         // Reset password (with a token received by mail)
-        Route::get('/auth/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getReset']);
-        Route::post('/auth/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+        Route::get($auth  . '/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@getReset']);
+        Route::post($auth . '/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
      }
 }

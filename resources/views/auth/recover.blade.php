@@ -7,7 +7,7 @@
         <p class="center"><img src="{{ url('/images/white-check.svg') }}" alt="Check mark" width="100px" /></p>
         <p class="nav"><a href="{{ url('/') }}">@lang('pagination.previous') Back to login screen</a></p>
 @else
-		<form class="form-signin form-recover" role="form" method="POST" action="{{ url('/auth/recover') }}">
+		<form class="form-signin form-recover" role="form" method="POST" action="@authurl('recover')">
             <div id="identity">
 				<input type="email" name="email" id="inputEmail" class="form-control"
                        value="{{ old('email') }}" placeholder="@lang('login.email')" required autofocus />

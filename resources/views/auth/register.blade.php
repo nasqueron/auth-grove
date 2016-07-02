@@ -2,7 +2,7 @@
 
 @section('card-content')
         <h1 class="title">@lang('login.registerAccount')</h1>
-		<form class="form-signin form-register" role="form" method="POST" action="{{ url('/auth/register') }}">
+		<form class="form-signin form-register" role="form" method="POST" action="@authurl('register')">
             <div id="identity">
                 <span id="reauth-username" class="reauth-username"></span>
                 <label for="inputUsername">@lang('login.username')</label>
