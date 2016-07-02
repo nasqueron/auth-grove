@@ -52,7 +52,7 @@ class AuthController extends Controller implements RegistrarContract
     }
 
     /**
-     * Register auth routes
+     * Registers auth routes.
      */
      public static function registerRoutes () {
         // Login
