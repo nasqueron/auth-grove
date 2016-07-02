@@ -27,26 +27,26 @@ class UserExternalSource extends Model {
      */
     protected $hidden = [];
 
-	/**
-	 * Gets fillable but not hidden attributes, plus create/update time.
-	 *
-	 * @return Array
-	 */
-	public function getAttributes () {
-		$attributes = array_diff($this->fillable , $this->hidden);
-		$attributes[] = 'created_at';
-		$attributes[] = 'updated_at';
-		array_unshift($attributes, 'id');
-		return $attributes;
-	}
+    /**
+     * Gets fillable but not hidden attributes, plus create/update time.
+     *
+     * @return Array
+     */
+    public function getAttributes () {
+        $attributes = array_diff($this->fillable , $this->hidden);
+        $attributes[] = 'created_at';
+        $attributes[] = 'updated_at';
+        array_unshift($attributes, 'id');
+        return $attributes;
+    }
 
     /**
      * Gets user attached to this source.
      *
      * @return User
      */
-	public function getUser () {
-	    return User::find($this->user_id);
-	}
+    public function getUser () {
+        return User::find($this->user_id);
+    }
 
 }
