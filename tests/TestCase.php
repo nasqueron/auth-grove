@@ -24,6 +24,41 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     }
 
     ///
+    /// Custom assertions
+    ///
+
+    /**
+     * Asserts each value of an array are included in another array.
+     *
+     * @param array|Traversable $needles The values to search
+     * @param array|Traversable $haystack The array to check values exist
+     * @param string $message The test message
+     */
+    public static function assertArrayContainsArrayItems ($needles, $haystack, $message) {
+        self::assertThat(
+            self::arrayContainsArrayItems($needles, $haystack),
+            self::isTrue(),
+            $message
+        );
+    }
+
+    /**
+     * Checks if each value of an array are included in another array.
+     *
+     * @param array|Traversable $needles The values to search
+     * @param array|Traversable $haystack The array to check values exist
+     * @return bool true if each $needles value is found in $haystack; otherwise, false
+     */
+    public static function arrayContainsArrayItems ($needles, $haystack) {
+        foreach ($needles as $needle) {
+            if (!in_array($needle, $haystack)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    ///
     /// Service providers
     ///
 
