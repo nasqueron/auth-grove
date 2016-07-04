@@ -180,6 +180,7 @@ return [
 		AuthGrove\Providers\AppServiceProvider::class,
 		AuthGrove\Providers\AuthServiceProvider::class,
 		AuthGrove\Providers\EventServiceProvider::class,
+		AuthGrove\Providers\HelpersServiceProvider::class,
 		AuthGrove\Providers\RouteServiceProvider::class,
 
 	],
