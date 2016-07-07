@@ -3,7 +3,7 @@
 @section('card-content')
 <div class="container-fluid">
 	<h1 class="title">@lang('login.resetPassword')</h1>
-	<form class="form-signin form-reset" role="form" method="POST" action="@authurl('reset')">
+	<form class="form-signin form-reset" role="form" method="POST" action="{{ authurl('reset') }}">
 		<div id="identity">
 	        <label for="inputEmail">@lang('login.email')</label>
 	        <input type="email" name="email" id="inputEmail" class="form-control"

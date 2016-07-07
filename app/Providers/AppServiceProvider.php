@@ -2,10 +2,6 @@
 
 use Illuminate\Support\ServiceProvider;
 
-use AuthGrove\Http\Controllers\Auth\AuthController;
-
-use Blade;
-
 class AppServiceProvider extends ServiceProvider {
 
 	/**
@@ -14,12 +10,6 @@ class AppServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		// Blade templates can invoke AuthController::getRoute as authurl()
-		Blade::directive('authurl', function ($expression) {
-			preg_match("@\('(.*)'\)@", $expression, $matches); // ('foo') → foo
-			$action = $matches[1];
-			return url(AuthController::getRoute($action));
-		});
 	}
 
 	/**

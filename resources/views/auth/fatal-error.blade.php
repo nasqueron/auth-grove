@@ -8,5 +8,5 @@
             {{ $error }}<br />
 @endforeach
         </p>
-        <a href="@authurl('login')" class="action-link">@lang('login.goto-login')</a>
+        <a href="{{ authurl('login') }}" class="action-link">@lang('login.goto-login')</a>
 @endsection

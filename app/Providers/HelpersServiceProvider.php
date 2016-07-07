@@ -21,6 +21,7 @@ class HelpersServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
+        require_once app_path() . '/Helpers/Routing.php';
     }
 
 }

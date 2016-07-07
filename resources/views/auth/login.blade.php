@@ -3,7 +3,7 @@
 @section('card-content')
         <h1 class="title">@lang('app.title')</h1>
         <img id="profile-img" class="profile-img-card" src="/images/profile-img-blank.png" alt="@lang('login.blankAvatarAlt')" />
-        <form class="form-signin" role="form" method="POST" action="@authurl('login')">
+        <form class="form-signin" role="form" method="POST" action="{{ authurl('login') }}">
             <div id="identity">
                 <span id="reauth-username" class="reauth-username"></span>
                 <input type="text" name="username" id="inputUsername" class="form-control"
@@ -15,7 +15,7 @@
 @foreach ($errors->all() as $error)
                 {{ $error }}<br />
 @endforeach
-                <a href="@authurl('recover')" class="action-link">@lang('login.passwordRecovery')</a>
+                <a href="{{ authurl('recover') }}" class="action-link">@lang('login.passwordRecovery')</a>
             </p>
             @endif
 
@@ -27,7 +27,7 @@
         </form>
         <!-- /form -->
 @if (count($errors) == 0)
-        <a href="@authurl('recover')" class="action-link">@lang('login.passwordRecovery')</a><br />
+        <a href="{{ authurl('recover') }}" class="action-link">@lang('login.passwordRecovery')</a><br />
 @endif
-        <a href="@authurl('register')" class="action-link">@lang('login.registerAccount')</a>
+        <a href="{{ authurl('register') }}" class="action-link">@lang('login.registerAccount')</a>
 @endsection

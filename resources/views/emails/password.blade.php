@@ -10,7 +10,7 @@
 
 @lang('emails.reset-password-callforaction')
 
-@authurl('reset/{{ $token }}')
+{{ authurl("reset/$token") }}
 
 @lang('emails.reset-password-origin')
 
