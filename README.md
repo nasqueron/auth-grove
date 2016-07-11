@@ -87,7 +87,7 @@ We also welcome anyone who wants to work on SAML integration, especially Shibbol
 
 * [IRC support](http://irc.lc/wolfplex)
 * [Forum](http://purl.org/NET/Nasqueron/AuthGrove/Forum)
-* [DevCentral](http://devcentral.nasqueron.org/tag/auth_grove/)
+* [DevCentral](https://devcentral.nasqueron.org/tag/auth_grove/)
   (bug tracker, code review)
 
 ## License
