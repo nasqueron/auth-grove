@@ -23,10 +23,9 @@ trait ResetsPasswords {
     /**
      * Display the password recover view.
 	 *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getRecover(Request $request) {
+    public function getRecover() {
         return view('auth.recover');
     }
 
