@@ -1,6 +1,9 @@
 <?php
 
+namespace AuthGrove\Tests\Internationalization;
+
 use AuthGrove\Internationalization\LocalizableMessage;
+use AuthGrove\Tests\TestCase;
 
 class LocalizableMessageTest extends TestCase {
 

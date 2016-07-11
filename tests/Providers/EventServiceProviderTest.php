@@ -1,12 +1,18 @@
 <?php
 
+namespace AuthGrove\Tests\Providers;
+
+use AuthGrove\Tests\TestCase;
+
+use Illuminate\Contracts\Events\Dispatcher;
+
+use Config;
+use File;
+
 class EventServiceProviderTest extends TestCase {
 
     public function testType () {
-        $this->assertServiceInstanceOf(
-            Illuminate\Contracts\Events\Dispatcher::class,
-            'events'
-        );
+        $this->assertServiceInstanceOf(Dispatcher::class, 'events');
     }
 
     ///

@@ -1,5 +1,7 @@
 <?php
 
+namespace AuthGrove\Tests;
+
 /**
  * Test authentication views with GET request and form title checks.
  *

@@ -1,5 +1,11 @@
 <?php
 
+namespace AuthGrove\Tests\Providers;
+
+use AuthGrove\Tests\TestCase;
+
+use File;
+
 class HelpersServiceProviderTest extends TestCase {
 
     ///

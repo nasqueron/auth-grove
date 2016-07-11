@@ -1,5 +1,9 @@
 <?php
 
+namespace AuthGrove\Tests;
+
+use App;
+
 /**
  * Tests the bug described in T492: when using a front-end server
  * with SSL termination, back-end should serve http:// links.

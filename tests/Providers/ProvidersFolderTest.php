@@ -1,5 +1,12 @@
 <?php
 
+namespace AuthGrove\Tests\Providers;
+
+use AuthGrove\Tests\TestCase;
+
+use Config;
+use File;
+
 class ProvidersFolderTest extends TestCase {
 
     public function testOmittedFiles () {

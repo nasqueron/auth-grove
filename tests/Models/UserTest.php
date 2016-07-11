@@ -1,6 +1,9 @@
 <?php
 
+namespace AuthGrove\Tests\Models;
+
 use AuthGrove\Models\User;
+use AuthGrove\Tests\TestCase;
 
 /**
  * Test User model.

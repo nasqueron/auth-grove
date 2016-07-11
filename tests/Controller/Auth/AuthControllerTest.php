@@ -1,6 +1,9 @@
 <?php
 
+namespace AuthGrove\Tests\Console\Commands;
+
 use AuthGrove\Http\Controllers\Auth\AuthController;
+use AuthGrove\Tests\TestCase;
 
 /**
  * Test User model.

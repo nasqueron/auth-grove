@@ -1,5 +1,12 @@
 <?php
 
+namespace AuthGrove\Tests\Console\Commands;
+
+use AuthGrove\Tests\TestCase;
+
+use Artisan;
+use Config;
+
 /**
  * Test authentication views with GET request and form title checks.
  *

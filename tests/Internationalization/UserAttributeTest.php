@@ -1,6 +1,9 @@
 <?php
 
+namespace AuthGrove\Tests\Internationalization;
+
 use AuthGrove\Internationalization\UserAttribute;
+use AuthGrove\Tests\TestCase;
 
 class UserAttributeTest extends TestCase {
 

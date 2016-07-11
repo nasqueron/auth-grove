@@ -28,13 +28,9 @@
             "database"
         ],
         "psr-4": {
-            "AuthGrove\\": "app/"
+            "AuthGrove\\": "app/",
+            "AuthGrove\\Tests\\": "tests/"
         }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
     },
     "scripts": {
         "post-install-cmd": [
