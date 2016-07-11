@@ -6,3 +6,7 @@ composer.lock
 php.ini
 public/css/
 *.log
+
+#CI
+build/
+cache.properties

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpdox xmlns="http://xml.phpdox.net/config">
+  <project name="Notifications" source="${basedir}/app" workdir="${basedir}/build/phpdox">
+    <collector backend="parser" publiconly="false">
+      <include mask="*.php" />
+    </collector>
+    <generator output="${basedir}/build">
+      <enrich base="${basedir}/build">
+        <source type="git">
+          <git binary="git" />
+        </source>
+        <source type="phploc">
+          <file name="logs/phploc.xml" />
+        </source>
+        <source type="checkstyle">
+          <file name="logs/checkstyle.xml" />
+        </source>
+        <source type="pmd">
+          <file name="logs/pmd.xml" />
+        </source>
+        <source type="phpunit">
+          <coverage path="logs/coverage" />
+        </source>
+      </enrich>
+      <build engine="html" output="api">
+        <file extension="html" />
+      </build>
+    </generator>
+  </project>
+</phpdox>
