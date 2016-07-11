@@ -30,17 +30,4 @@ class AccountHelpers {
         return null;
     }
 
-    public static function getNonBreakableSpace() {
-        return mb_convert_encoding('&nbsp;', 'UTF-8', 'HTML-ENTITIES');
-    }
-
-    public static function localizeUserAttribute ($attribute, $useNoBreakableSpace = true) {
-        $localizedKey = 'panel.user-attributes.' . $attribute;
-        $localizedString = trans($localizedKey);
-        if ($useNoBreakableSpace) {
-            return str_replace(' ', self::getNonBreakableSpace(), $localizedString);
-        }
-        return $localizedString;
-    }
-
 }

@@ -2,8 +2,10 @@
 
 namespace AuthGrove\Console\Commands;
 
-use Illuminate\Console\Command;
 use AuthGrove\Console\Services\AccountHelpers as AccountHelpers;
+use AuthGrove\Internationalization\UserAttribute;
+
+use Illuminate\Console\Command;
 
 class AccountInfo extends Command {
 
@@ -43,10 +45,11 @@ class AccountInfo extends Command {
      * @param string $value The value for this attribute
      */
     protected function printInformationAttribute ($attribute, $value) {
-        $line  = \Keruald\mb_str_pad(
-            AccountHelpers::localizeUserAttribute($attribute),
-            self::ATTRIBUTE_LEN
-        );
+        $line = (new UserAttribute($attribute))
+            ->localize()
+            ->replaceSpacesByNonBreakableSpaces()
+            ->pad(self::ATTRIBUTE_LEN)
+            ->get();
         $line .= $value;
         $this->info($line);
     }
