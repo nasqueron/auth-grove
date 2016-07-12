@@ -8,13 +8,10 @@ use Illuminate\Mail\Message;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Foundation\Auth\RedirectsUsers;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait ResetsPasswords {
-
-    use RedirectsUsers;
 
     ///
     /// GET and POST routes

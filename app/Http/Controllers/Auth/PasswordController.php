@@ -5,6 +5,8 @@ namespace AuthGrove\Http\Controllers\Auth;
 use AuthGrove\Http\Controllers\Controller;
 use AuthGrove\Services\ResetsPasswords;
 
+use Illuminate\Foundation\Auth\RedirectsUsers;
+
 class PasswordController extends Controller
 {
     /*
@@ -18,6 +20,7 @@ class PasswordController extends Controller
     |
     */
 
+    use RedirectsUsers;
     use ResetsPasswords;
 
     /**
