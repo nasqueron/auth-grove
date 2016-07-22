@@ -2,7 +2,6 @@
 
 namespace AuthGrove\Undo;
 
-use Hash;
 use InvalidArgumentException;
 use OutOfBoundsException;
 

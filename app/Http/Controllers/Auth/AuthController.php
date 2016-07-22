@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 use AuthGrove\Http\Controllers\Controller;
 use AuthGrove\Services\Registrar;
-use AuthGrove\Models\User;
 
 use Config;
 use Route;
