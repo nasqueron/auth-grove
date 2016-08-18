@@ -10,7 +10,7 @@ use AuthGrove\Tests\TestCase;
  */
 class UsersTest extends TestCase {
 
-    function testTryGetFromExternalSource () {
+    public function testTryGetFromExternalSource () {
         $this->assertFalse(
             User::tryGetFromExternalSource('phantasialand', 'Fairy Tale Forest', $user)
         );

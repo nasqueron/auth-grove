@@ -12,7 +12,7 @@ trait FindableByAttribute {
      *
      * If the attribute isn't unique, this method will return the first object found.
      */
-    static function findBy ($attribute, $value) {
+    public static function findBy ($attribute, $value) {
         $method = 'static::where' . ucfirst($attribute);
         $object = call_user_func($method, $value)
             ->first(['*']);

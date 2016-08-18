@@ -6,7 +6,7 @@ use AuthGrove\Tests\TestCase;
 
 class RoutingTest extends TestCase {
 
-    function testGetRoute () {
+    public function testGetRoute () {
         $this->assertStringEndsWith('/auth/login', authurl('login'));
         $this->assertStringEndsWith('/auth', authurl());
         $this->assertStringEndsWith('/auth', authurl(''));

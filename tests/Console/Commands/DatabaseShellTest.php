@@ -24,7 +24,7 @@ class DatabaseShellTest extends TestCase {
     /**
      * @expectedException LogicException
      */
-    function testLogicExceptionIsThrownWhenEngineIsUnknown () {
+    public function testLogicExceptionIsThrownWhenEngineIsUnknown () {
         $formerEngine = Config::get('database.default');
 
         Config::set('database.default', 'unknownsql');

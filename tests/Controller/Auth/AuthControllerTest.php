@@ -10,7 +10,7 @@ use AuthGrove\Tests\TestCase;
  */
 class AuthControllerTest extends TestCase {
 
-    function testGetRoute () {
+    public function testGetRoute () {
         $this->assertSame('/auth/login', AuthController::getRoute('login'));
         $this->assertSame('/auth', AuthController::getRoute(''));
         $this->assertSame('/auth', AuthController::getRoute(null));
