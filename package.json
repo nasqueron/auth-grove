@@ -3,5 +3,13 @@
   "devDependencies": {
     "gulp": "^3.8.8",
     "laravel-elixir": "*"
-    }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.161.1"
+  }
 }
