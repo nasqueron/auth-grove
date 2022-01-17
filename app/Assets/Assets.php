@@ -34,7 +34,7 @@ class Assets {
     }
 
     /**
-     * Checks the resource has a valid format for sanity and to avoid
+     * Checks the resource has a valid format for coherence and to avoid
      * exploits trying to load an arbitrary resource URL.
      *
      * @param $name string The resource name

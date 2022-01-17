@@ -10,7 +10,7 @@ class UndoableMock implements Undoable {
     use WithUndo;
 
     ///
-    /// Some dummy properties
+    /// Some properties
     ///
 
     public $foo = 'bar';
