@@ -1,12 +1,18 @@
+# Composer
 /vendor
-/node_modules
-.env
-.c9/
 composer.lock
-php.ini
-public/css/
-*.log
 
-#CI
+# Node and JS toolchain
+/node_modules
+yarn.lock
+package-lock.json
+
+# CI and development
 build/
 cache.properties
+.env
+
+# Assets
+public/css/
+public/images/
+public/mix-manifest.json
